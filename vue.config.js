@@ -2,7 +2,7 @@ module.exports = {
   "transpileDependencies": [
     "vuetify"
   ],
-  publicPath: '/',
+  publicPath: '/LIFF_App/',
   devServer: {
     public: "https://a60c41fb.ngrok.io",
     disableHostCheck: true
