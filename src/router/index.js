@@ -14,7 +14,7 @@ const routes = [
         return "/home"
       }else{
         console.log(url)
-        window.location = url
+        window.location = decodeURI(url)
         liff.closeWindow()
         return 
       }
