@@ -1,13 +1,27 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import { lemonchiffon } from 'color-name';
 
 Vue.use(VueRouter)
 
+/*globals liff */
 const routes = [
   {
     path: '/',
+    redirect: to => {
+      let url = to.query.url
+      if (url == null) {
+        return "/home"
+      }else{
+        console.log(url)
+        window.location = url
+        liff.closeWindow()
+        return 
+      }
+    }
+  },
+  {
+    path: '/home',
     name: 'Home',
     component: Home
   },
@@ -19,13 +33,6 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  },
-  {
-    path: '/redirect', redirect: to => {
-      // console.log(to.query.url)
-      window.location = to.query.url
-      liff.closeWindow()
-    }
   }
 ]
 
