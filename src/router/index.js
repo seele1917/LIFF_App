@@ -4,26 +4,9 @@ import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
-/*globals liff */
 const routes = [
   {
     path: '/',
-    redirect: to => {
-      let url = to.query.url
-      if (url == null) {
-        return "/home"
-      }else{
-        console.log(url)
-        liff.openWindow({
-          url: decodeURI(url),
-          external: true
-        })
-        return 
-      }
-    }
-  },
-  {
-    path: '/home',
     name: 'Home',
     component: Home
   },

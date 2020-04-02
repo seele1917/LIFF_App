@@ -24,9 +24,6 @@
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld';
-// import Manager from './components/Manager';
-
 /*globals liff */
 export default {
   name: 'App',
@@ -36,6 +33,13 @@ export default {
     picture: null
   }),
   created : function() {
+    let url = this.$route.query.url
+    if (url != null) {
+        liff.openWindow({
+          url: decodeURI(url),
+          external: true
+        })
+    }
     liff
         .init({
             liffId: '1654022080-7DwzQZwY'

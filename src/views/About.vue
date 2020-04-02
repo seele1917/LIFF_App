@@ -78,7 +78,7 @@
             }
           }
           this.$axios.post(url, data).then(function(){
-            me.$router.push("/home")
+            me.$router.push("/")
           })
         }
       },
