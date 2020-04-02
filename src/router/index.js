@@ -14,7 +14,7 @@ const routes = [
         return "/home"
       }else{
         console.log(url)
-        liff.openWhindow({
+        liff.openWindow({
           url: decodeURI(url),
           external: true
         })
