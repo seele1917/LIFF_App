@@ -14,7 +14,6 @@
         <h3 class="ml-3">{{ name }}</h3>
         
       </div>
-
     </v-app-bar>
 
     <v-content>
@@ -30,9 +29,10 @@ export default {
   data: () => ({
     userId: null,
     name: null,
-    picture: null
+    picture: null,
   }),
   created : function() {
+    let id = this.$route.query.id
     liff
         .init({
             liffId: '1654022080-7DwzQZwY'
@@ -41,6 +41,13 @@ export default {
             // start to use LIFF's api
             // initializeApp();
             console.log('LIFF initialization successed')
+
+            if (id != null) {
+              liff.openWindow({
+                url: "mercari://item/openDetail?id="+id
+              })
+              liff.closeWindow()
+            }
             liff.getProfile().then(profile => {
               this.userId = profile.userId
               this.name = profile.displayName
@@ -51,13 +58,7 @@ export default {
         .catch((err) => {
             console.log('LIFF initialization failed', err)
         });
-    let url = this.$route.query.url
-    if (url != null) {
-        liff.openWindow({
-          url: decodeURI(url),
-          external: false
-        })
-    }
+
   },
 };
 </script>

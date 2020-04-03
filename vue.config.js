@@ -3,9 +3,9 @@ module.exports = {
     "vuetify"
   ],
   publicPath: '/LIFF_App/',
-  // devServer: {
-  //   public: "https://a60c41fb.ngrok.io",
-  //   disableHostCheck: true
-  // },
+  devServer: {
+    public: "https://0c0bc672.ngrok.io",
+    disableHostCheck: true
+  },
   outputDir: 'docs'
 }
