@@ -33,13 +33,6 @@ export default {
     picture: null
   }),
   created : function() {
-    let url = this.$route.query.url
-    if (url != null) {
-        liff.openWindow({
-          url: decodeURI(url),
-          external: true
-        })
-    }
     liff
         .init({
             liffId: '1654022080-7DwzQZwY'
@@ -58,6 +51,13 @@ export default {
         .catch((err) => {
             console.log('LIFF initialization failed', err)
         });
+    let url = this.$route.query.url
+    if (url != null) {
+        liff.openWindow({
+          url: decodeURI(url),
+          external: false
+        })
+    }
   },
 };
 </script>
